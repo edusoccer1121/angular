@@ -1469,11 +1469,11 @@ export class FormGroup extends AbstractControl {
    */
   patchValue(value: {[key: string]: any}, options: {onlySelf?: boolean, emitEvent?: boolean} = {}):
       void {
-    Object.keys(value).forEach(name => {
+    value != null ? Object.keys(value).forEach(name => {
       if (this.controls[name]) {
         this.controls[name].patchValue(value[name], {onlySelf: true, emitEvent: options.emitEvent});
       }
-    });
+    }): null;
     this.updateValueAndValidity(options);
   }
 
